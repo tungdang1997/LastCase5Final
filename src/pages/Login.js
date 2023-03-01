@@ -23,30 +23,100 @@ export default function Login() {
         })
     }
     return (
-        <div className={'row'}>
+        <div className="row">
+            <div className="col-md-6 mx-auto p-0">
+                <div className="card">
+                    <div className="login-box">
+                        <div className="login-snip">
+                            <input id="tab-1" type="radio" name="tab" className="sign-in" checked/><label htmlFor="tab-1"
+                                                                                                          className="tab">Login</label>
+                            <input id="tab-2" type="radio" name="tab" className="sign-up"/><label htmlFor="tab-2"
+                                                                                                  className="tab">Sign
+                            Up</label>
+                            <div className="login-space">
 
-            <div className="offset-3 col-6 mt-5">
-                <h1 style={{textAlign: 'center'}}>Login</h1>
-                <Formik initialValues={{username: '', password: ''}} onSubmit={(values)=>{
 
-                    handleLogin(values)
-                }}>
-                    <Form>
-                        <div className="ml-3 form-group">
-                            <label htmlFor="exampleInputUsername">User Name: </label>
-                            <Field type='text' className={'form-control'} name={'username'}/>
+                                <div className="login">
+
+                                    <Formik initialValues={{username: '', password: ''}} onSubmit={(values)=>{
+
+                                        handleLogin(values)
+                                    }}>
+                                        <Form>
+
+                                            <div className="group">
+                                                <label htmlFor="user" className="label">Username</label>
+                                                <Field id="user" type="text" className="input"
+                                                       placeholder="Enter your username" name={'username'}/>
+                                            </div>
+                                            <div className="group">
+                                                <label htmlFor="pass" className="label">Password</label>
+                                                <Field id="pass" type="password" className="input" data-type="password"
+                                                       placeholder="Enter your password" name={'password'}/>
+                                            </div>
+                                            <div className="group">
+                                                <Field id="check" type="checkbox" className="check" checked/>
+                                                <label htmlFor="check"><span className="icon"></span> Keep me Signed
+                                                    in</label>
+                                            </div>
+                                            <div className="group">
+                                                <Field type="submit" className="button" value="Sign In"/>
+                                            </div>
+                                            <div className="hr"></div>
+                                            <div className="foot">
+                                                <a href="#">Forgot Password?</a>
+                                            </div>
+
+
+                                        </Form>
+
+                                    </Formik>
+
+
+                                </div>
+
+
+
+                                <div className="sign-up-form">
+
+                                    <Formik initialValues={{username: '', password: ''}} onSubmit={(values)=>{
+
+                                        handleLogin(values)
+                                    }}>
+                                        <Form>
+                                            <div className="group">
+                                                <label htmlFor="user" className="label">Username</label>
+                                                <Field id="user" type="text" className="input"
+                                                       placeholder="Create your Username" name={'username'}/>
+                                            </div>
+                                            <div className="group">
+                                                <label htmlFor="pass" className="label">Password</label>
+                                                <Field id="pass" type="password" className="input" data-type="password"
+                                                       placeholder="Create your password" name={'password'}/>
+                                            </div>
+
+                                            <br/>
+
+                                            <div className="group">
+                                                <Field type="submit" className="button" value="Sign Up"/>
+                                            </div>
+                                            <br/>
+                                            <div className="hr"></div>
+                                            <div className="foot">
+                                                <label htmlFor="tab-1">Already Member?</label>
+                                            </div>
+
+
+                                        </Form>
+
+                                    </Formik>
+                                </div>
+
+
+                            </div>
                         </div>
-                        <div className="ml-3 form-group">
-                            <label htmlFor="exampleInputPassword">Password: </label>
-                            <Field type='text' className={'form-control'} name={'password'}/>
-                        </div>
-
-                        <button type="submit" className="btn btn-primary">Login</button>
-                        <button type="submit" className="btn btn-primary" style={{marginLeft: 10}}>
-                            <Link to={'register'} style={{textDecoration:'none', color:'red'}}>Register</Link>
-                        </button>
-                    </Form>
-                </Formik>
+                    </div>
+                </div>
             </div>
         </div>
     )

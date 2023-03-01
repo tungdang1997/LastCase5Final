@@ -104,6 +104,7 @@ export default function EditAlbum() {
                         countSong: album.countSong,
                         imageAlbum: album.imageAlbum
                     }} onSubmit={(values) => {
+                        console.log(values)
                         values.imageAlbum = urls[1];
                         values.idUser = user.idUser;
                         handleEdit(values)

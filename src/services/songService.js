@@ -1,5 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import customAxios from "./api";
+import axios from "axios";
 
 export const getSongs = createAsyncThunk(
     'songs/getSongs',
@@ -11,31 +12,39 @@ export const getSongs = createAsyncThunk(
 export const addSong = createAsyncThunk(
     'songs/addSongs',
     async (data)=>{
+
+
         const res = await customAxios.post('songs', data);
+
+        console.log(res.data);
         return res.data
     }
 );
-// export const removeBlog = createAsyncThunk(
-//     'blogs/removeBlogs',
-//     async (data)=>{
-//         const res = await customAxios.delete('/blogs/'+ data);
-//         return data
-//     }
-// )
-//
-// export const findByIdBlog = createAsyncThunk(
-//     'blogs/findByIdBlog',
-//     async (data)=>{
-//         const res = await customAxios.get('/blogs/findById/'+data.id);
-//         return res.data;
-//     }
-// )
-//
-// export const editBlog = createAsyncThunk(
-//     'blogs/editBlogs',
-//     async (data)=>{
-//         await customAxios.put('/blogs/' + data.id, data);
-//         const res = await customAxios.get('blogs');
-//         return res.data
-//     }
-// )
+
+export const removeSong = createAsyncThunk(
+    'blogs/removeBlogs',
+    async (data)=>{
+        const res = await customAxios.delete('/songs/'+ data);
+        return data
+    }
+)
+
+export const searchSong = (
+
+    async (data)=>{
+
+        console.log(data)
+        const res = await axios.get(`/songs/${data}`);
+        return res;
+    }
+)
+
+export const editSong = createAsyncThunk(
+    'songs/editSongs',
+    async (data)=>{
+        console.log(data[0]);
+        await customAxios.put(`/songs/${ data[1]}` ,  data[0]);
+        const res = await customAxios.get('songs');
+        return res.data
+    }
+)

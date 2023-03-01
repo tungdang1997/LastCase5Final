@@ -1,5 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {addBlog, addSong, editBlog, findByIdBlog, getBlogs, getSongs, removeBlog} from "../../services/songService";
+import {
+    editSong,
+    addSong,
+    getSongs,
+    removeSong
+} from "../../services/songService";
 
 const initialState = {
     songs: [],
@@ -22,13 +27,13 @@ const songSlice = createSlice({
             state.songs.push(action.payload)
 
         });
-        // builder.addCase(removeBlog.fulfilled,(state,action)=>{
-        //     state.blogs.splice(action.payload)
-        //
-        // });
-        // builder.addCase(editBlog.fulfilled,(state,action)=>{
-        //     state.blogs = action.payload
-        // });
+        builder.addCase(removeSong.fulfilled,(state,action)=>{
+            state.songs.splice(action.payload)
+
+        });
+        builder.addCase(editSong.fulfilled,(state,action)=>{
+            state.songs = action.payload
+        });
     }
 
 })

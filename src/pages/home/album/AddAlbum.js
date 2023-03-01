@@ -67,7 +67,7 @@ export default function AddAlbum() {
     const handleAdd = (values) => {
         let data = {...values, user: user.idUser};
         dispatch(addAlbum(data)).then(() => {
-            navigate('home');
+            navigate('/home');
         })
 
     }

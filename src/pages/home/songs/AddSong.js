@@ -81,6 +81,8 @@ export default function AddSong() {
 
     const handleAdd = (values) => {
         let data = {...values, user: user.idUser};
+
+        console.log(data);
         dispatch(addSong(data)).then(() => {
             navigate('/home');
         })
