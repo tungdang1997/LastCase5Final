@@ -3,6 +3,8 @@ import {useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import swal from 'sweetalert';
 import {getAlbums, removeAlbum} from "../../../services/albumService";
+import {getSongs} from "../../../services/songService";
+import {Field, Form, Formik} from "formik";
 
 
 export default function List() {
@@ -14,15 +16,27 @@ export default function List() {
         }
     })
 
+
+
     const user = useSelector(state => {
         if (state.user.user !== undefined) {
             return state.user.user;
         }
     })
 
-    useEffect(() => {
-        dispatch(getAlbums())
+    const song = useSelector(state => {
+
+        return state.song.songs
+    })
+
+
+    useEffect( () => {
+        dispatch(getAlbums());
     }, [])
+    useEffect(() => {
+        dispatch(getSongs())
+        console.log(111,albums)
+    }, [albums])
     return (
         <>
 
@@ -47,10 +61,22 @@ export default function List() {
                                                                 <h4>{item.nameAlbum}</h4>
                                                                 <p>{item.username}</p>
                                                                 <p>{item.count}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                                             </div>
-                                                            <audio preload="auto" controls>
-                                                                <source src="https://cdn.discordapp.com/attachments/775740994595323954/775741533789224960/Alan_Walker_-_Sing_Me_To_SleepMP3_160K.mp3"/>
-                                                            </audio>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -196,5 +222,17 @@ export default function List() {
                 </div>
             </footer>
         </>
+    )
+}
+
+const optionSong = (props) => {
+    return(
+        <select name={'idSong'}>
+            <option selected>DS Song...</option>
+            {song.idAlbum === item.idAlbum && song?.map((item) => (
+                <option value={item?.idSong} selected>{item?.nameSong}</option>)
+
+            )}
+        </select>
     )
 }

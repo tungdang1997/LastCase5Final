@@ -4,14 +4,14 @@ import axios from "axios";
 
 export const getSongs = createAsyncThunk(
     'songs/getSongs',
-    async ()=>{
+    async () => {
         const res = await customAxios.get('songs');
         return res.data
     }
 );
 export const addSong = createAsyncThunk(
     'songs/addSongs',
-    async (data)=>{
+    async (data) => {
 
 
         const res = await customAxios.post('songs', data);
@@ -23,27 +23,25 @@ export const addSong = createAsyncThunk(
 
 export const removeSong = createAsyncThunk(
     'blogs/removeBlogs',
-    async (data)=>{
-        const res = await customAxios.delete('/songs/'+ data);
+    async (data) => {
+        const res = await customAxios.delete('/songs/' + data);
         return data
     }
 )
 
-export const searchSong = (
-
-    async (data)=>{
-
-        console.log(data)
-        const res = await axios.get(`/songs/${data}`);
-        return res;
-    }
+export const searchSong = createAsyncThunk(
+    'songs/searchSongs',
+        async (data) => {
+            const res = await axios.get(`http://localhost:8080/songs/${data}`);
+            return res.data;
+        }
 )
 
 export const editSong = createAsyncThunk(
     'songs/editSongs',
-    async (data)=>{
+    async (data) => {
         console.log(data[0]);
-        await customAxios.put(`/songs/${ data[1]}` ,  data[0]);
+        await customAxios.put(`/songs/${data[1]}`, data[0]);
         const res = await customAxios.get('songs');
         return res.data
     }

@@ -3,7 +3,7 @@ import {
     editSong,
     addSong,
     getSongs,
-    removeSong
+    removeSong, searchSong
 } from "../../services/songService";
 
 const initialState = {
@@ -20,9 +20,6 @@ const songSlice = createSlice({
             state.songs = action.payload
             state.loading = false
         });
-        // builder.addCase(findByIdBlog.fulfilled,(state,action)=>{
-        //     state.songs = action.payload
-        // });
         builder.addCase(addSong.fulfilled,(state,action)=>{
             state.songs.push(action.payload)
 
@@ -34,6 +31,9 @@ const songSlice = createSlice({
         builder.addCase(editSong.fulfilled,(state,action)=>{
             state.songs = action.payload
         });
+        builder.addCase(searchSong.fulfilled,(state,action)=>{
+            state.songs = action.payload;
+        })
     }
 
 })

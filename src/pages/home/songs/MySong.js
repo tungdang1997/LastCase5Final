@@ -60,14 +60,14 @@ export default function MySong() {
                                                 </div>
                                             </div>
                                             <div className="col-xl-3 col-md-3">
-                                                {/*<div className=" music_btn">*/}
+                                                <div className=" music_btn">
 
-                                                {/*    <Link style={{width: 20, float: "left", border: 5}} href="#"*/}
-                                                {/*          className="boxed-btn"*/}
-                                                {/*          to={`/home/edit-song/${item.idSong}`}><i*/}
-                                                {/*        className="fa-solid fa-pen-to-square"></i></Link>*/}
+                                                    <Link style={{width: 20, float: "left", border: 5}} href="#"
+                                                          className="boxed-btn"
+                                                          to={`edit-song/${item.idSong}`}><i
+                                                        className="fa-solid fa-pen-to-square"></i></Link>
 
-                                                {/*</div>*/}
+                                                </div>
                                                 <div className="music_btn">
                                                     <Link style={{width: 20, border: 5}} href="#"
                                                           className="mr-3 boxed-btn"

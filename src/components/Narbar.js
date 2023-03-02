@@ -23,13 +23,9 @@ export default function Navbar() {
 
 
     const handleSearch = (name) => {
-        console.log(name)
         dispatch(searchSong(name)).then(() => {
-            navigate('/home');
-
         })
     }
-
 
 
     return (
@@ -50,28 +46,30 @@ export default function Navbar() {
                                     </div>
                                 </div>
                                 <div className="col-xl-6 col-lg-7">
-                                    <div className="main-menu  d-none d-lg-block">
+                                    <div className="main-menu  d-none d-lg-block" >
                                         <nav>
 
                                             <ul id="navigation">
-                                                <form className="d-flex" role="search">
-                                                    <input className="form-control me-2" type="search"
-                                                           placeholder="Search" aria-label="Search" value={state1}
-                                                           onChange={(event) => {
-                                                               setState1(event.target.value)
+
+                                                <li> <input className="form-control me-2" type="search"
+                                                       placeholder="Search" aria-label="Search" value={state1}
+                                                       onChange={(event) => {
+                                                           setState1(event.target.value)
 
 
-                                                           }}/>
-                                                    <button className="btn btn-outline-success"
-                                                            type="submit" onClick={ () => {
+                                                       }}/></li>
+                                                    <li><button className="btn btn-outline-success"
+                                                        type="submit" onClick={async () => {
 
-                                                        handleSearch(state1)
+                                                    await handleSearch(state1)
 
-                                                        setState1('')
+                                                    setState1('')
 
-                                                    }}>Search
-                                                    </button>
-                                                </form>
+                                                }}>Search
+                                                </button></li>
+                                                <br/>
+                                                <br/>
+
                                                 <li><Link className="active" href="#" to="">home</Link></li>
                                                 {/*<li><Link href="#" to="add-album">Add Album</Link></li>*/}
                                                 <li><a href="#">Song <i className="ti-angle-down"></i></a>
@@ -83,13 +81,16 @@ export default function Navbar() {
                                                 </li>
                                                 <li><a href="#">Album <i className="ti-angle-down"></i></a>
                                                     <ul className="submenu">
-                                                        <li><Link href="#" to="list-album">My album</Link></li>
                                                         <li><Link href="#" to="add-album">Add album</Link></li>
+                                                        <li><Link href="#" to="list-album">My album</Link></li>
+
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">pages <i className="ti-angle-down"></i></a>
+                                                <li><a href="#">PlayList <i className="ti-angle-down"></i></a>
                                                     <ul className="submenu">
-                                                        <li><a href="#">elements</a></li>
+                                                        <li><Link href="#" to={'add-play-list'}>Add PlayList</Link></li>
+                                                        <li><Link href="#" to={'play-lists'}>My PlayList</Link></li>
+
                                                     </ul>
                                                 </li>
                                                 <li><a href="#">Tài Khoản: {user !== undefined && user.username}</a>
