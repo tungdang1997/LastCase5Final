@@ -1,4 +1,4 @@
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {Field, Formik} from "formik";
 import {searchSong} from "../services/songService";
@@ -11,7 +11,7 @@ export default function Navbar() {
         return state.user.user;
     })
 
-
+    // const {idUser} = useParams()
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const song = useSelector(state => {
@@ -52,7 +52,6 @@ export default function Navbar() {
                                 <div className="col-xl-6 col-lg-7">
                                     <div className="main-menu  d-none d-lg-block">
                                         <nav>
-
                                             <ul id="navigation">
                                                 <form className="d-flex" role="search">
                                                     <input className="form-control me-2" type="search"
@@ -72,6 +71,7 @@ export default function Navbar() {
                                                     }}>Search
                                                     </button>
                                                 </form>
+                                                <br/>
                                                 <li><Link className="active" href="#" to="">home</Link></li>
                                                 {/*<li><Link href="#" to="add-album">Add Album</Link></li>*/}
                                                 <li><a href="#">Song <i className="ti-angle-down"></i></a>
@@ -87,13 +87,13 @@ export default function Navbar() {
                                                         <li><Link href="#" to="add-album">Add album</Link></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">pages <i className="ti-angle-down"></i></a>
+                                                <li><a href="#">Profile <i className="ti-angle-down"></i></a>
                                                     <ul className="submenu">
-                                                        <li><a href="#">elements</a></li>
+                                                        <li><Link href="#" to={'my-profile/' + user.idUser}>My Profile</Link></li>
+                                                        <li><Link href="#" to={'change-password/' + user.idUser}>Change Password</Link></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Tài Khoản: {user !== undefined && user.username}</a>
-                                                </li>
+                                                <li><a href="#">Tài Khoản: {user !== undefined && user.username}</a></li>
                                             </ul>
                                         </nav>
                                     </div>

@@ -10,6 +10,8 @@ import EditAlbum from "./pages/home/album/EditAlbum";
 import ListSong from "./pages/home/songs/ListSong";
 import MySong from "./pages/home/songs/MySong";
 import EditSong from "./pages/home/songs/EditSong";
+import Profile from "./pages/home/user/Profile";
+import ChangePassword from "./pages/home/user/ChangePassword";
 
 
 
@@ -25,14 +27,12 @@ function App() {
 
                     <Route path={'home'} element={<Home/>}>
                         <Route path={''} element={<ListSong/>}/>
-
                         <Route path={'my-song'} element={<MySong/>}/>
+                        <Route path={'my-profile/:idUser'} element={<Profile/>}/>
+                        <Route path={'change-password/:idUser'} element={<ChangePassword/>}/>
                         <Route path={'edit-song/:id'} element={<EditSong/>}/>
-
                         <Route path={'add-song'} element={<AddSong/>}></Route>
-
                         <Route path={'delete-song/:id'}></Route>
-
                         <Route path={'add-album'} element={<AddAlbum/>}></Route>
                         <Route path={'list-album'} element={<ListAlbum/>}></Route>
                         <Route path={'edit-album/:id'} element={<EditAlbum/>}></Route>

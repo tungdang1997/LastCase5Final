@@ -22,6 +22,18 @@ export default function Login() {
             }
         })
     }
+
+    const handleRegister = (value) => {
+        dispatch(register(value)).then(() => {
+            console.log(value)
+            swal("Đăng ký thành công!", {
+                icon: "success",
+            }).then(() => {
+                return navigate('/')
+            });
+
+        })
+    }
     return (
         <div className="row">
             <div className="col-md-6 mx-auto p-0">
@@ -79,9 +91,9 @@ export default function Login() {
 
                                 <div className="sign-up-form">
 
-                                    <Formik initialValues={{username: '', password: ''}} onSubmit={(values)=>{
+                                    <Formik initialValues={{username: '', password: '', avatar: ''}} onSubmit={(values)=>{
 
-                                        handleLogin(values)
+                                        handleRegister(values)
                                     }}>
                                         <Form>
                                             <div className="group">
