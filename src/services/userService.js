@@ -12,7 +12,9 @@ export const login = createAsyncThunk(
 export const register = createAsyncThunk(
     'users/register',
     async (data)=>{
-        const res = await customAxios.post('users/register', data);
-        return res
+        console.log(2)
+        const res = await customAxios.post('/users/register',data);
+        console.log(1,res.data)
+        return res.data
     }
 )

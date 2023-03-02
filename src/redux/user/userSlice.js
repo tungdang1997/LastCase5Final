@@ -5,7 +5,8 @@ const initialState = {
     user: localStorage.getItem('user') === undefined ? {
         username: null,
         password: null
-    }: JSON.parse(localStorage.getItem('user'))
+    }: JSON.parse(localStorage.getItem('user')),
+    user1: []
 }
 const userSlice = createSlice({
     name: 'user',
@@ -18,9 +19,8 @@ const userSlice = createSlice({
         })
 
         builder.addCase(register.fulfilled, (state, action)=>{
-            state.user = action.payload.data
-            localStorage.setItem('user', JSON.stringify(action.payload.data))
-            localStorage.setItem('access_token', JSON.stringify(action.payload.data.token))
+            state.user1.push(action.payload)
+
         })
     }
 })

@@ -23,6 +23,7 @@ export default function List() {
     useEffect(() => {
         dispatch(getAlbums())
     }, [])
+
     return (
         <>
 

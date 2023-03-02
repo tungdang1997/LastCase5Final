@@ -5,10 +5,7 @@ import {Field, Form, Formik} from "formik";
 import {useEffect, useState} from "react";
 import {storage} from "../../../firebase";
 import {ref, getDownloadURL, uploadBytesResumable} from "firebase/storage";
-import { getCategory} from "../../../services/categoryService";
-import {addSong} from "../../../services/songService";
 import {addAlbum} from "../../../services/albumService";
-import Navbar from "../../../components/Narbar";
 
 
 export default function AddAlbum() {
