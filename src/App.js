@@ -10,6 +10,7 @@ import EditAlbum from "./pages/home/album/EditAlbum";
 
 import ShowPlayList from "./pages/home/playList/ShowPlayList";
 import AddPlayList from "./pages/home/playList/AddPlayList";
+import EditPlaylist from "./pages/home/playList/EditPlaylist";
 
 
 
@@ -33,6 +34,7 @@ function App() {
 
                         <Route path={'play-lists'} element={<ShowPlayList/>}/>
                         <Route path={'add-play-list'} element={<AddPlayList/>}/>
+                        <Route path={'edit-play-list/:id'} element={<EditPlaylist/>}/>
                     </Route>
                 </Routes>
             </div>

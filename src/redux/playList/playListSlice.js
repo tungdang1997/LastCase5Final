@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getPlayLists,removePlayList,addPlayList} from "../../services/playListService";
+import {getPlayLists, removePlayList, addPlayList, editPlaylist} from "../../services/playListService";
 
 const initialState = {
     playLists: []
@@ -18,6 +18,9 @@ const playListSlice = createSlice({
             state.playLists = action.payload;
         })
 
+        builder.addCase(editPlaylist.fulfilled,(state,action)=>{
+            state.playLists = action.payload
+        });
     }
 })
 

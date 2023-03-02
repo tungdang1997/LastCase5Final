@@ -44,7 +44,7 @@ export default function ShowPlayList() {
                                         <tr>
                                             <th scope="row">{index + 1}</th>
                                             <td><Link to={"detail"}>{item.namePlaylist}</Link></td>
-                                            <td><img src={item.imagePlaylist} alt="" width={200} height={200}/></td>
+                                            <td><img src={item.imagePlaylist} alt="" width={50} height={70}/></td>
                                             <td>{item.countSongPlaylist}</td>
                                             <td><Link to={`/home/edit-play-list/${item.idPlaylist}`}>
                                                 <button>Edit</button>

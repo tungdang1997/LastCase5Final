@@ -11,23 +11,24 @@ const albumSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(getAlbums.fulfilled,(state,action)=>{
+        builder.addCase(getAlbums.fulfilled, (state, action) => {
             state.albums = action.payload
         });
-        builder.addCase(findByIdAlbum.fulfilled,(state,action)=>{
+        builder.addCase(findByIdAlbum.fulfilled, (state, action) => {
             state.albums = action.payload
         });
-        builder.addCase(addAlbum.fulfilled,(state,action)=>{
+        builder.addCase(addAlbum.fulfilled, (state, action) => {
             state.albums.push(action.payload)
 
         });
-        builder.addCase(removeAlbum.fulfilled,(state,action)=>{
+        builder.addCase(removeAlbum.fulfilled, (state, action) => {
             state.albums.splice(action.payload)
 
         });
-        builder.addCase(editAlbum.fulfilled,(state,action)=>{
+        builder.addCase(editAlbum.fulfilled, (state, action) => {
             state.albums = action.payload
         });
+
     }
 
 })

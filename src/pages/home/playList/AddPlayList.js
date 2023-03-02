@@ -64,6 +64,7 @@ export default function AddPlayList() {
     };
 
     const handleAdd = (values) => {
+
         // let data = {...values, user: user.idUser};
         dispatch(addPlayList(values)).then(() => {
             navigate('/home/play-lists');
