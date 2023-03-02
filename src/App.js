@@ -8,6 +8,10 @@ import AddAlbum from "./pages/home/album/AddAlbum";
 import ListAlbum from "./pages/home/album/ListAlbum";
 import EditAlbum from "./pages/home/album/EditAlbum";
 
+import ShowPlayList from "./pages/home/playList/ShowPlayList";
+import AddPlayList from "./pages/home/playList/AddPlayList";
+
+
 
 function App() {
 
@@ -23,8 +27,12 @@ function App() {
                         <Route path={'list-album'} element={<ListAlbum/>}></Route>
                         {/*<Route path={'my-list'} element={<MyList/>}></Route>*/}
 
-                        <Route path={'edit-album/:id'} element={<EditAlbum/>}></Route>
+
+                        <Route path={'edit-album/:id'} element={<EditAlbum/>}/>
                         <Route path={'delete-album/:id'}></Route>
+
+                        <Route path={'play-lists'} element={<ShowPlayList/>}/>
+                        <Route path={'add-play-list'} element={<AddPlayList/>}/>
                     </Route>
                 </Routes>
             </div>

@@ -45,6 +45,12 @@ export default function Navbar() {
                                                             <li><Link href="#" to="add-album">Add album</Link></li>
                                                         </ul>
                                                     </li>
+                                                    <li><a href="#">Album <i className="ti-angle-down"></i></a>
+                                                        <ul className="submenu">
+                                                            <li><Link href="#" to={"play-lists"}>PlayList</Link></li>
+                                                            <li><Link href="#" to={"add-play-list"}>Add PlayList</Link></li>
+                                                        </ul>
+                                                    </li>
                                                     <li><a href="#">pages <i className="ti-angle-down"></i></a>
                                                         <ul className="submenu">
                                                             <li><a href="#">elements</a></li>

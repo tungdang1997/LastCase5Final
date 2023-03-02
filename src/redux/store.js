@@ -3,6 +3,7 @@ import userReducer from "./user/userSlice";
 import songReducer from "./song/songSlice";
 import categoryReducer from "./category/categorySlice";
 import albumReducer from "./album/albumSlice";
+import playlistReducer from "./playList/playListSlice";
 
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
         song: songReducer,
         user: userReducer,
         category: categoryReducer,
-        album: albumReducer
+        album: albumReducer,
+        playList: playlistReducer
 
     }
 })
