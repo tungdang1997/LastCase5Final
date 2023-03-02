@@ -3,8 +3,8 @@ import customAxios from "./api";
 
 export const getPlayLists = createAsyncThunk(
     'playlists/getPlaylists',
-    async () => {
-        const res = await customAxios.get('playlists');
+    async (data) => {
+        const res = await customAxios.get('playlists/my-playlist/' + data);
         return res.data
     }
 )

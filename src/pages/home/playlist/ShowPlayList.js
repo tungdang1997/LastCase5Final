@@ -22,13 +22,15 @@ export default function ShowPlayList() {
         }
     })
 
+    console.log(user)
+
     const songs = useSelector(({song}) => {
         return song.songs
     })
 
 
     useEffect(() => {
-        dispatch(getPlayLists())
+        dispatch(getPlayLists(user.idUser))
         dispatch(getSongs())
 
     }, [])
