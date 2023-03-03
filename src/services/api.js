@@ -4,7 +4,7 @@ console.log(token)
 const customAxios = axios.create({
     baseURL: 'http://localhost:8080/',
     headers: {
-        authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`
     }
 })
 

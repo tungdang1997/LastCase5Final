@@ -9,7 +9,7 @@ export default function ChangePassword(){
     const navigate = useNavigate()
     const {idUser} = useParams()
     const handleEdit = (value)=>{
-        let data = [idUser , value]
+        let data = [value , idUser]
         dispatch(changePassword(data)).then((e)=>{
             if (e.payload === "User not found") {
                 swal("User not found");

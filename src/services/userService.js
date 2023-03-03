@@ -42,7 +42,7 @@ export const changePassword = createAsyncThunk(
     'users/changePassword',
     async (data)=>{
         console.log(data)
-        const res = await customAxios.put('/users/change-password/' + data[0], data[1]);
+        const res = await customAxios.put('users/change-password/' + data[1], data[0]);
         return res.data;
     }
 )
