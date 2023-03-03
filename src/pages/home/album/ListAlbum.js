@@ -11,6 +11,7 @@ export default function List() {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const albums = useSelector(state => {
+        console.log(state)
         if (state.album !== undefined){
             return state.album.albums[0];
         }
@@ -57,19 +58,6 @@ export default function List() {
                                                                 <h4>{item.nameAlbum}</h4>
                                                                 <p>{item.username}</p>
                                                                 <p>{item.count}</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                                                             </div>

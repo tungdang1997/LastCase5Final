@@ -1,135 +1,76 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import swal from 'sweetalert';
-import {getPlayLists, removePlayList} from "../../../services/playlistService";
+import {getPlayListDetails} from "../../../src/services/playListDetailService";
 import {Field, Form, Formik} from "formik";
-import {addSong, getSongs, removeSong} from "../../../services/songService";
-import {addPlayListDetails, getPlayListDetails} from "../../../services/playListDetailService";
+import {getPlayLists} from "../../services/playlistService";
+import {getSongs} from "../../services/songService";
+import {login} from "../../services/userService";
 
 
-
-export default function ShowPlayList() {
-    const dispatch = useDispatch();
-    const navigate = useNavigate()
-
-
+export default function ShowSongInPlaylist() {
+    const {id} = useParams()
     const user = useSelector(state => {
-        if (state.user.user !== undefined) {
-            return state.user.user;
-        }
+
+        return state.user.user.idUser
     })
 
-    const playLists = useSelector(state => {
-        return state.playlist.playLists
+    const dispatch = useDispatch()
+
+
+
+
+
+    const playListDetail = useSelector(state => {
+        console.log(state.playlistDetail)
+        return state.playlistDetail.playListDetails
     })
-    console.log(playLists)
-
-    const songs = useSelector(({song}) => {
-        return song.songs
-    })
 
 
 
-
-
-    const handleAdd = (values) => {
-console.log(values)
-        let data = {...values};
-        dispatch(addPlayListDetails(data)).then(() => {
-
-        })
-
-
-    }
-
-
-    const handleShow= (values) => {
-        console.log(values)
-        dispatch(getPlayListDetails(values)).then(() => {
-
-        })
-
-
-    }
 
     useEffect(() => {
-        dispatch(getPlayLists(user.idUser))
-        dispatch(getSongs())
-
+        dispatch(getPlayListDetails(id))
     }, [])
+
 
     return (
         <>
+
 
             <div className="music_area music_gallery inc_padding">
 
 
                 <div className="container">
                     <div className="row align-items-center justify-content-center mb-20">
-                        {user !== undefined && playLists &&
-                            playLists.map((item, index) => {
-
+                        {user !== undefined && playListDetail !== undefined &&
+                            playListDetail.map((item, index) => {
                                 return (
                                     <div className="col-xl-10">
                                         <div className="row align-items-center">
                                             <div className="col-xl-9 col-md-9">
                                                 <div className="music_field">
                                                     <div className="thumb">
-                                                        <img src={item.imagePlaylist} alt="" width={148} height={148}/>
+                                                        <img src={item.image} alt="" width={148} height={148}/>
                                                     </div>
                                                     <div className="audio_name">
                                                         <div className="name">
-                                                                    <label htmlFor="exampleInputUsername">Name play list: {item.namePlaylist} </label>
-                                                                    <Link to={`my-playlist-detail/${item.idPlaylist}`}>
-                                                                        <h5>Show Song</h5>
-                                                                    </Link>
+                                                            <h4>{item.nameSong}</h4>
+                                                            <p> Name Album : {item.nameAlbum}</p>
+                                                            <p> Singer : {item.singer}</p>
+                                                            <p> Author : {item.author}</p>
+
                                                         </div>
-                                                        <Formik initialValues={{
-                                                            idSong: '',
-                                                            idPlayList: ''
-                                                        }} onSubmit={(values) => {
-
-                                                            values.idPlayList = item.idPlaylist + ''
-                                                            handleAdd(values)
-
-                                                        }}>
-                                                            <td>
-                                                                <Form>
-
-                                                                    <Field as="select" name={'idSong'} id="cars">
-                                                                        {
-                                                                            songs && songs.map((item) => (
-                                                                                <>
-                                                                                    <option
-                                                                                        value={item.idSong}>{item.nameSong}</option>
-                                                                                </>
-                                                                            ))
-                                                                        }
-
-                                                                    </Field>
-
-
-                                                                    <button type="submit">Add Song</button>
-
-                                                                </Form>
-                                                            </td>
-
-                                                        </Formik>
-
+                                                        <audio preload="auto" controls>
+                                                            <source src={item.sound}/>
+                                                        </audio>
                                                     </div>
-
                                                 </div>
-
-                                                <br/>
-                                                <br/>
-                                                <br/>
+                                            </div>
 
 
-                                                <td><Link to={`edit-play-list/${item.idPlaylist}`}>
-                                                    <button>Edit</button>
-                                                </Link>
-                                                </td>
+                                            <div className="col-xl-3 col-md-3">
 
                                             </div>
 
@@ -144,6 +85,8 @@ console.log(values)
                     </div>
                 </div>
             </div>
+
+
 
             <footer className="footer">
                 <div className="footer_top">
@@ -239,7 +182,6 @@ console.log(values)
                     </div>
                 </div>
             </footer>
-
         </>
     )
 }

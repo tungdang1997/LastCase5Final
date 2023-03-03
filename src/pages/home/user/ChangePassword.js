@@ -19,8 +19,8 @@ export default function ChangePassword(){
                 swal("New password is match with old password");
             } else {
                 swal("Change Password success");
-                // localStorage.clear();
-                // navigate("/");
+                localStorage.clear();
+                navigate("/");
             }
 
         })

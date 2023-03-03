@@ -74,7 +74,7 @@ export default function Navbar() {
                                                 <br/>
                                                 <br/>
                                                 
-                                                <li><Link className="active" href="#" to="">home</Link></li>
+                                                <li><Link className="active" href="#" to="/home">home</Link></li>
                                                 {/*<li><Link href="#" to="add-album">Add Album</Link></li>*/}
                                                 <li><a href="#">Song <i className="ti-angle-down"></i></a>
                                                     <ul className="submenu">

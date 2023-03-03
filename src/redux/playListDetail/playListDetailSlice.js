@@ -1,5 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {addPlayListDetails} from "../../services/playListDetailService";
+import {addPlayListDetails, getPlayListDetails} from "../../services/playListDetailService";
+
 
 
 const initialState = {
@@ -11,6 +12,11 @@ const playListDetailSlice = createSlice({
     extraReducers: builder => {
 
         builder.addCase(addPlayListDetails.fulfilled, (state, action) => {
+            state.playListDetails = action.payload;
+        })
+
+        builder.addCase(getPlayListDetails.fulfilled, (state, action) => {
+            console.log(action.payload)
             state.playListDetails = action.payload;
         })
 

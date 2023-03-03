@@ -15,6 +15,8 @@ import ChangePassword from "./pages/home/user/ChangePassword";
 import ShowPlayList from "./pages/home/playlist/ShowPlayList";
 import AddPlayList from "./pages/home/playlist/AddPlayList";
 import ShowSongAlbum from "./pages/home/album/showSongAlbum";
+import EditPlaylist from "./pages/home/playlist/EditPlaylist";
+import ShowSongInPlaylist from "./pages/playListDetail/ShowSong";
 
 
 
@@ -46,7 +48,9 @@ function App() {
                         <Route path={'delete-album/:id'}></Route>
 
                         <Route path={'play-lists'} element={<ShowPlayList/>}/>
+                        <Route path={'play-lists/my-playlist-detail/:id'} element={<ShowSongInPlaylist/>}/>
                         <Route path={'add-play-list'} element={<AddPlayList/>}/>
+                        <Route path={'play-lists/edit-play-list/:id'} element={<EditPlaylist/>}/>
 
 
                     </Route>
