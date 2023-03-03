@@ -26,8 +26,6 @@ function App() {
         <>
             <div className='container-fluid'>
                 <Routes>
-                    <Route path={''} element={<Login></Login>}></Route>
-                    <Route path={'register'} element={<Register/>}></Route>
 
 
                     <Route path={'home'} element={<Home/>}>
@@ -54,6 +52,11 @@ function App() {
 
 
                     </Route>
+
+                    <Route path={''} element={<Login></Login>}></Route>
+                    <Route path={'register'} element={<Register/>}></Route>
+
+
                 </Routes>
             </div>
         </>

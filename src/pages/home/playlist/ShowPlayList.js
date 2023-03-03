@@ -23,7 +23,7 @@ export default function ShowPlayList() {
     const playLists = useSelector(state => {
         return state.playlist.playLists
     })
-    console.log(playLists)
+
 
     const songs = useSelector(({song}) => {
         return song.songs

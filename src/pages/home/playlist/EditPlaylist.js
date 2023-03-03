@@ -23,8 +23,8 @@ export default function EditPlaylist() {
         return state.user.user;
     })
     const playList = useSelector(state => {
-        console.log(state.playList.playLists[0])
-        return state.playList.playLists[0]
+        console.log(state.playlist.playLists[0])
+        return state.playlist.playLists[0]
     })
     useEffect(()=>{
         dispatch(findByIdPlayList(id)).then((value)=>{
