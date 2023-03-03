@@ -33,10 +33,6 @@ export default function List() {
     useEffect( () => {
         dispatch(getAlbums());
     }, [])
-    useEffect(() => {
-        dispatch(getSongs())
-        console.log(111,albums)
-    }, [albums])
     return (
         <>
 
@@ -224,15 +220,3 @@ export default function List() {
         </>
     )
 }
-//
-// const optionSong = (props) => {
-//     return(
-//         <select name={'idSong'}>
-//             <option selected>DS Song...</option>
-//             {song.idAlbum === item.idAlbum && song?.map((item) => (
-//                 <option value={item?.idSong} selected>{item?.nameSong}</option>)
-//
-//             )}
-//         </select>
-//     )
-// }

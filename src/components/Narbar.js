@@ -23,9 +23,13 @@ export default function Navbar() {
 
 
     const handleSearch = (name) => {
+        console.log(name)
         dispatch(searchSong(name)).then(() => {
+            navigate('/home');
+
         })
     }
+
 
 
     return (
@@ -69,7 +73,7 @@ export default function Navbar() {
                                                 </button></li>
                                                 <br/>
                                                 <br/>
-
+                                                
                                                 <li><Link className="active" href="#" to="">home</Link></li>
                                                 {/*<li><Link href="#" to="add-album">Add Album</Link></li>*/}
                                                 <li><a href="#">Song <i className="ti-angle-down"></i></a>
@@ -90,11 +94,15 @@ export default function Navbar() {
                                                     <ul className="submenu">
                                                         <li><Link href="#" to={'add-play-list'}>Add PlayList</Link></li>
                                                         <li><Link href="#" to={'play-lists'}>My PlayList</Link></li>
-
+                                                        </ul>
+                                                </li>
+                                                <li><a href="#">Profile <i className="ti-angle-down"></i></a>
+                                                    <ul className="submenu">
+                                                        <li><Link href="#" to={'my-profile/' + user.idUser}>My Profile</Link></li>
+                                                        <li><Link href="#" to={'change-password/' + user.idUser}>Change Password</Link></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="#">Tài Khoản: {user !== undefined && user.username}</a>
-                                                </li>
+                                                <li><a href="#">Tài Khoản: {user !== undefined && user.username}</a></li>
                                             </ul>
                                         </nav>
                                     </div>

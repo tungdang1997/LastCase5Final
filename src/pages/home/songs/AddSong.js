@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import {storage} from "../../../firebase";
 import {ref, getDownloadURL, uploadBytesResumable} from "firebase/storage";
 import { getCategory} from "../../../services/categoryService";
-import {addSong, getSongs} from "../../../services/songService";
+import {addSong} from "../../../services/songService";
 import {getAlbums} from "../../../services/albumService";
 
 

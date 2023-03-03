@@ -8,25 +8,16 @@ export default function Register() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const user = useSelector(state => {
-        return state.user.user
-    })
+
     const handleRegister = (value) => {
-        dispatch(register(value)).then((state) => {
-            if (state.payload.data !== user.username) {
-                console.log(state.payload.data)
+        dispatch(register(value)).then(() => {
+            console.log(value)
                 swal("Đăng ký thành công!", {
                     icon: "success",
                 }).then(() => {
                     return navigate('/')
                 });
 
-            } else {
-                swal("Tài khoản đã tồn tại!", {
-
-                });
-                return navigate('/register')
-            }
         })
     }
     return (
@@ -34,18 +25,18 @@ export default function Register() {
 
             <div className="offset-3 col-6 mt-5">
                 <h1 style={{textAlign: 'center'}}>Register</h1>
-                <Formik initialValues={{username: '', password: ''}} onSubmit={(values) => {
+                <Formik initialValues={{username: '', password: '', avatar: ''}} onSubmit={(values) => {
 
                     handleRegister(values)
                 }}>
                     <Form>
                         <div className="ml-3 form-group">
                             <label htmlFor="exampleInputUsername">User Name: </label>
-                            <Field type='text' className={'form-control'}/>
+                            <Field type='text' className={'form-control'} name={'username'}/>
                         </div>
                         <div className="ml-3 form-group">
                             <label htmlFor="exampleInputPassword">Password: </label>
-                            <Field type='text' className={'form-control'}/>
+                            <Field type='text' className={'form-control'} name={'password'}/>
                         </div>
                         <button type="submit" className="btn btn-primary">Register</button>
                         <button type="submit" className="btn btn-primary" style={{marginLeft: 10}}>
